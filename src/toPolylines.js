@@ -9,7 +9,8 @@ import logger from './util/logger'
 export default (parsed) => {
   const entities = denormalise(parsed)
   const polylines = entities.map(entity => {
-    const layerTable = parsed.tables.layers[entity.layer]
+    const layerTable = parsed.tables.layers[entity.layer];
+    console.log(entity.layer, layerTable);
     let rgb
     if (layerTable) {
       const colorNumber = ('colorNumber' in entity) ? entity.colorNumber : layerTable.colorNumber
